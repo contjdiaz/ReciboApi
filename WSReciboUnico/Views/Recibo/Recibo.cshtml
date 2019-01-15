@@ -1,0 +1,519 @@
+﻿@model Entidades.Recibo
+
+@{
+    ViewBag.Title = "Generar";
+}
+
+@*<h2>Generar</h2>*@
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    @*<div class="form-horizontal">
+            <h4>Recibo</h4>
+            <hr />
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            <div class="form-group">
+                @Html.LabelFor(model => model.NORECIBO, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.NORECIBO, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.NORECIBO, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.RAZON_SOCIAL, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.RAZON_SOCIAL, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.RAZON_SOCIAL, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.DIRECCION, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.DIRECCION, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.DIRECCION, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.TELEFONO, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.TELEFONO, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.TELEFONO, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.CIUDAD, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.CIUDAD, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.CIUDAD, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.PAGO_OPORTUNO, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.PAGO_OPORTUNO, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.PAGO_OPORTUNO, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.CODIGO_REFERENCIA, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.CODIGO_REFERENCIA, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.CODIGO_REFERENCIA, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.TOTAL, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.TOTAL, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.TOTAL, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.CODIGO_BARRAS, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.CODIGO_BARRAS, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.CODIGO_BARRAS, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" value="Create" class="btn btn-default" />
+                </div>
+            </div>
+        </div>*@
+
+
+    <div align='center'>
+        <table width='100%' border='0' cellspacing='0'>
+            <tr>
+                <td>
+                    <p align='center'>
+                        <strong>FORMULARIO DE REGISTRO DE APORTES<br>FONDO EDUPLAN</strong><br>
+                        FONDO COMUN DE EDUCACION FORMAL<br>Art&iacute;culo 8 Ley 863 de 2003 <br> Decreto 2880 de 2004 / Resoluci&oacute;n 051 de 2005<br>
+                </td>
+            </tr>
+        </table>
+        <br>
+
+        <table width="649" border="1" cellpadding="0" cellspacing="0" bordercolor="#000000">
+            <tr>
+                <td colspan="2" rowspan="4">
+                    <div align="center">
+                        <img src="http://10.1.18.120:7000/facturacion/IMAGENES/LOGO.JPG" width="155" height="38"><br>
+                        <font size="1" face="Verdana, Arial, Helvetica, sans-serif">
+                            NIT 899.999.035-7<br>
+                            Recibo de Pago No. @Model.NORECIBO
+
+                        </font>
+                    </div>
+                </td>
+                <td width="98" class="LETRAPEQUE&Ntilde;A">Razon Social</td>
+                <td width="170" class="LETRAPEQUE&Ntilde;A">@Model.RAZON_SOCIAL</td>
+                <td width="201" rowspan="5" valign="top">
+                    <div align="center">
+                        <font size="1" face="Verdana, Arial, Helvetica, sans-serif">
+                            TIMBRE CAJERO<br>(Copia Depositante)<br>
+                        </font>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td class="LETRAPEQUE&Ntilde;A">Direcci&oacute;n</td>
+                <td class="LETRAPEQUE&Ntilde;A">@Model.DIRECCION</td>
+            </tr>
+            <tr>
+                <td class="LETRAPEQUE&Ntilde;A">Tel&eacute;fonos</td>
+                <td class="LETRAPEQUE&Ntilde;A">@Model.TELEFONO</td>
+            </tr>
+            <tr>
+                <td class="LETRAPEQUE&Ntilde;A">Ciudad</td>
+                <td class="LETRAPEQUE&Ntilde;A"> @Model.CIUDAD </td>
+            </tr>
+            <tr>
+                <td height="53" colspan="4">
+                    <font size="1" face="Verdana, Arial, Helvetica, sans-serif">
+                        Concepto de Este Pago
+                    </font>:<span class="LETRAPEQUE&Ntilde;A">
+                        @Model.CONCEPTO
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="5" bgcolor="#999999">
+                    <div align="center">
+                        <font color="#FFFFFF" size="1" face="Verdana, Arial, Helvetica, sans-serif">
+                            <strong>
+                                ENTIDADES
+                                BANCARIAS AUTORIZADAS
+                            </strong>
+                        </font>
+                    </div>
+                </td>
+            </tr>
+            <tr class="LETRAPEQUE&Ntilde;A">
+                <td colspan="2"> <div align="center">BANCOLOMBIA - BANCO AGRARIO </div></td>
+                <td colspan="2"> <div align="center">BBVA - BCSC CAJA SOCIAL </div></td>
+                <td> <div align="center">HELM BANK - POPULAR - OCCIDENTE</div></td>
+            </tr>
+            <tr>
+                <td colspan="5" bgcolor="#999999">
+                    <div align="center"><font color="#FFFFFF" size="1" face="Verdana, Arial, Helvetica, sans-serif"></font></div>
+                    <div align="center">
+                        <font color="#FFFFFF" size="1" face="Verdana, Arial, Helvetica, sans-serif">
+                            <strong>
+                                DETALLE
+                                DEL PAGO
+                            </strong>
+                        </font>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td width="154" height="40" valign="top">
+                    <div align="center">
+                        <strong>
+                            <font size="1" face="Verdana, Arial, Helvetica, sans-serif">
+                                PAGO
+                                OPORTUNO HASTA<br>
+                                20180606
+                            </font>
+                        </strong>
+                    </div>
+                </td>
+                <td height="40" colspan="2" valign="top">
+                    <div align="center">
+                        <strong>
+                            <font size="1" face="Verdana, Arial, Helvetica, sans-serif">
+                                FECHA
+                                DE PAGO<br>
+                                aaaa/mm/dd
+                            </font>
+                        </strong>
+                    </div>
+                </td>
+                <td colspan="2" valign="middle">
+                    <div align="center">
+                        <font size="1" face="Verdana, Arial, Helvetica, sans-serif">
+                            <strong>
+                                C&oacute;digo
+                                Referencia<br>
+                                <font size="2"> </font>
+                            </strong>
+                        </font><font size="2" face="Verdana, Arial, Helvetica, sans-serif">
+                            Fondo Eduplan @Model.CODIGO_REFERENCIA
+                        </font>
+                    </div>
+                </td>
+            </tr>
+
+            <tr>
+                <td bgcolor="#999999">
+                    <div align="center">
+                        <strong>
+                            <font color="#FFFFFF" size="1" face="Verdana, Arial, Helvetica, sans-serif">
+                                C&oacute;digo
+                                Banco
+                            </font>
+                        </strong>
+                    </div>
+                </td>
+                <td colspan="3" bgcolor="#999999">
+                    <div align="center">
+                        <strong>
+                            <font color="#FFFFFF" size="1" face="Verdana, Arial, Helvetica, sans-serif">
+                                Cheque
+                                de Gerencia No.
+                            </font>
+                        </strong>
+                    </div>
+                    <div align="center"><strong></strong></div>
+                </td>
+                <td bgcolor="#999999"> <div align="center"><strong><font color="#FFFFFF" size="1" face="Verdana, Arial, Helvetica, sans-serif">Valor</font></strong></div></td>
+            </tr>
+            <tr>
+                <td>&nbsp;</td>
+                <td colspan="3">&nbsp;</td>
+                <td class="LETRAPEQUE&Ntilde;A">$</td>
+            </tr>
+            <tr>
+                <td>
+                    <div align="center">
+                        <font size="1" face="Verdana, Arial, Helvetica, sans-serif">
+                            <br>
+                        </font>
+                    </div>
+                </td>
+                <td colspan="3">&nbsp;</td>
+                <td class="LETRAPEQUE&Ntilde;A">$</td>
+            </tr>
+
+            <tr>
+                <td colspan="4"><div align="right"><font size="1">TOTAL</font></div></td>
+                <td>
+                    <div align="right">
+                        <font size="1" face="Verdana, Arial, Helvetica, sans-serif">$</font>
+                        <font size="1" face="Verdana, Arial, Helvetica, sans-serif">
+                            @Model.TOTAL
+                        </font>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="5">
+                    <div align="center" class="LETRAPEQUE&Ntilde;A">
+                        OBSERVACIONES:
+                        Pague en efectivo, cheque de gerencia o persona jur&iacute;dica LOCAL, en las oficinas de los bancos autorizados en cualquier ciudad del Pa&iacute;s. Si paga en cheque, por favor girar a nombre de ICETEX, escriba en el respaldo su nombre, numero de identificaci&oacute;n, concepto de la consignaci&oacute;n y tel&eacute;fonos
+                    </div>
+                </td>
+            </tr>
+        </table>
+        <table width="650" border="0" cellspacing="0" cellpadding="0">
+            <tr>
+                <td>
+                    <div align="center" style="margin:5px">
+                        <div id="ImagenBarras">@Html.Raw(Model.CODIGO_BARRAS)</div>
+                        <!-- <img style="-webkit-user-select: none;" src="http://10.1.4.241/librerias/GenerarCodigoBarras/imagenes/(415)7707268760020(8020)9993780287(3900)20000(96)20180606.gif"> -->
+                        <!-- <img style="-webkit-user-select: none;" src="http://10.1.4.241/librerias/GenerarCodigoBarras/imagenes/(415)7707268760020(8020)9993780284(3900)1000000(96)20180606.gif"> -->
+
+
+                    </div>
+                    <div style="text-align:center; font-size:0.7em; padding:2px 0px 5px 0px;"><span id="TextoCodigoBarras">@Model.TEXTO_CODIGOBARRAS</span></div>
+                </td>
+            </tr>
+        </table>
+        <img src="http://10.1.18.120:7000/facturacion/IMAGENES/CORTAR.JPG" width="650" height="21">
+
+        <br>
+
+
+    </div>
+
+
+    @*<img src="http://10.1.18.120:7000/facturacion/IMAGENES/CORTAR.JPG" width="650" height="21">*@
+
+
+    <div align='center'>
+
+        <br>
+
+        <table width="649" border="1" cellpadding="0" cellspacing="0" bordercolor="#000000">
+            <tr>
+                <td colspan="2" rowspan="4">
+                    <div align="center">
+                        <img src="http://10.1.18.120:7000/facturacion/IMAGENES/LOGO.JPG" width="155" height="38"><br>
+                        <font size="1" face="Verdana, Arial, Helvetica, sans-serif">
+                            NIT 899.999.035-7<br>
+                            Recibo de Pago No. @Model.NORECIBO
+
+                        </font>
+                    </div>
+                </td>
+                <td width="98" class="LETRAPEQUE&Ntilde;A">Razon Social</td>
+                <td width="170" class="LETRAPEQUE&Ntilde;A">@Model.RAZON_SOCIAL</td>
+                <td width="201" rowspan="5" valign="top">
+                    <div align="center">
+                        <font size="1" face="Verdana, Arial, Helvetica, sans-serif">
+                            TIMBRE CAJERO<br>(Copia Depositante)<br>
+                        </font>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td class="LETRAPEQUE&Ntilde;A">Direcci&oacute;n</td>
+                <td class="LETRAPEQUE&Ntilde;A">@Model.DIRECCION</td>
+            </tr>
+            <tr>
+                <td class="LETRAPEQUE&Ntilde;A">Tel&eacute;fonos</td>
+                <td class="LETRAPEQUE&Ntilde;A">@Model.TELEFONO</td>
+            </tr>
+            <tr>
+                <td class="LETRAPEQUE&Ntilde;A">Ciudad</td>
+                <td class="LETRAPEQUE&Ntilde;A"> @Model.CIUDAD </td>
+            </tr>
+            <tr>
+                <td height="53" colspan="4">
+                    <font size="1" face="Verdana, Arial, Helvetica, sans-serif">
+                        Concepto de Este Pago
+                    </font>:<span class="LETRAPEQUE&Ntilde;A">
+                        @Model.CONCEPTO
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="5" bgcolor="#999999">
+                    <div align="center">
+                        <font color="#FFFFFF" size="1" face="Verdana, Arial, Helvetica, sans-serif">
+                            <strong>
+                                ENTIDADES
+                                BANCARIAS AUTORIZADAS
+                            </strong>
+                        </font>
+                    </div>
+                </td>
+            </tr>
+            <tr class="LETRAPEQUE&Ntilde;A">
+                <td colspan="2"> <div align="center">BANCOLOMBIA - BANCO AGRARIO </div></td>
+                <td colspan="2"> <div align="center">BBVA - BCSC CAJA SOCIAL </div></td>
+                <td> <div align="center">HELM BANK - POPULAR - OCCIDENTE</div></td>
+            </tr>
+            <tr>
+                <td colspan="5" bgcolor="#999999">
+                    <div align="center"><font color="#FFFFFF" size="1" face="Verdana, Arial, Helvetica, sans-serif"></font></div>
+                    <div align="center">
+                        <font color="#FFFFFF" size="1" face="Verdana, Arial, Helvetica, sans-serif">
+                            <strong>
+                                DETALLE
+                                DEL PAGO
+                            </strong>
+                        </font>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td width="154" height="40" valign="top">
+                    <div align="center">
+                        <strong>
+                            <font size="1" face="Verdana, Arial, Helvetica, sans-serif">
+                                PAGO
+                                OPORTUNO HASTA<br>
+                                20180606
+                            </font>
+                        </strong>
+                    </div>
+                </td>
+                <td height="40" colspan="2" valign="top">
+                    <div align="center">
+                        <strong>
+                            <font size="1" face="Verdana, Arial, Helvetica, sans-serif">
+                                FECHA
+                                DE PAGO<br>
+                                aaaa/mm/dd
+                            </font>
+                        </strong>
+                    </div>
+                </td>
+                <td colspan="2" valign="middle">
+                    <div align="center">
+                        <font size="1" face="Verdana, Arial, Helvetica, sans-serif">
+                            <strong>
+                                C&oacute;digo
+                                Referencia<br>
+                                <font size="2"> </font>
+                            </strong>
+                        </font><font size="2" face="Verdana, Arial, Helvetica, sans-serif">
+                            Fondo Eduplan @Model.CODIGO_REFERENCIA
+                        </font>
+                    </div>
+                </td>
+            </tr>
+
+            <tr>
+                <td bgcolor="#999999">
+                    <div align="center">
+                        <strong>
+                            <font color="#FFFFFF" size="1" face="Verdana, Arial, Helvetica, sans-serif">
+                                C&oacute;digo
+                                Banco
+                            </font>
+                        </strong>
+                    </div>
+                </td>
+                <td colspan="3" bgcolor="#999999">
+                    <div align="center">
+                        <strong>
+                            <font color="#FFFFFF" size="1" face="Verdana, Arial, Helvetica, sans-serif">
+                                Cheque
+                                de Gerencia No.
+                            </font>
+                        </strong>
+                    </div>
+                    <div align="center"><strong></strong></div>
+                </td>
+                <td bgcolor="#999999"> <div align="center"><strong><font color="#FFFFFF" size="1" face="Verdana, Arial, Helvetica, sans-serif">Valor</font></strong></div></td>
+            </tr>
+            <tr>
+                <td>&nbsp;</td>
+                <td colspan="3">&nbsp;</td>
+                <td class="LETRAPEQUE&Ntilde;A">$</td>
+            </tr>
+            <tr>
+                <td>
+                    <div align="center">
+                        <font size="1" face="Verdana, Arial, Helvetica, sans-serif">
+                            <br>
+                        </font>
+                    </div>
+                </td>
+                <td colspan="3">&nbsp;</td>
+                <td class="LETRAPEQUE&Ntilde;A">$</td>
+            </tr>
+
+            <tr>
+                <td colspan="4"><div align="right"><font size="1">TOTAL</font></div></td>
+                <td>
+                    <div align="right">
+                        <font size="1" face="Verdana, Arial, Helvetica, sans-serif">$</font>
+                        <font size="1" face="Verdana, Arial, Helvetica, sans-serif">
+                            @Model.TOTAL
+                        </font>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="5">
+                    <div align="center" class="LETRAPEQUE&Ntilde;A">
+                        OBSERVACIONES:
+                        Pague en efectivo, cheque de gerencia o persona jur&iacute;dica LOCAL, en las oficinas de los bancos autorizados en cualquier ciudad del Pa&iacute;s. Si paga en cheque, por favor girar a nombre de ICETEX, escriba en el respaldo su nombre, numero de identificaci&oacute;n, concepto de la consignaci&oacute;n y tel&eacute;fonos
+                    </div>
+                </td>
+            </tr>
+        </table>
+        <table width="650" border="0" cellspacing="0" cellpadding="0">
+            <tr>
+                <td>
+                    <div align="center" style="margin:5px">
+                        <div id="ImagenBarras">@Html.Raw(Model.CODIGO_BARRAS))</div>
+                        <!-- <img style="-webkit-user-select: none;" src="http://10.1.4.241/librerias/GenerarCodigoBarras/imagenes/(415)7707268760020(8020)9993780287(3900)20000(96)20180606.gif"> -->
+                        <!-- <img style="-webkit-user-select: none;" src="http://10.1.4.241/librerias/GenerarCodigoBarras/imagenes/(415)7707268760020(8020)9993780284(3900)1000000(96)20180606.gif"> -->
+
+
+                    </div>
+                    <div style="text-align:center; font-size:0.7em; padding:2px 0px 5px 0px;"><span id="TextoCodigoBarras">@Model.TEXTO_CODIGOBARRAS</span></div>
+                </td>
+            </tr>
+        </table>
+        @*<img src="http://10.1.18.120:7000/facturacion/IMAGENES/CORTAR.JPG" width="650" height="21">*@
+
+        <br>
+
+
+    </div>
+
+    @Html.ActionLink("Generar PDF", "DownloadViewPDF", "Recibo", Model, null)
+}
+
+
+@*<table width='100%' border='0' cellspacing='0'>
+        <tr>
+            <td>
+                <p align='center'>
+                    <strong>FORMULARIO DE REGISTRO DE APORTES<br>FONDO ACCION SOCIAL EN EDUCACION - FASE</strong><br>
+                    FONDO COMUN DE EDUCACION FORMAL<br>Art&iacute;culo 8 Ley 863 de 2003 <br> Decreto 2880 de 2004 / Resoluci&oacute;n 051 de 2005<br>
+            </td>
+        </tr>
+    </table>*@
+@*@section Scripts {
+        @Scripts.Render("~/bundles/jqueryval")
+    }*@
